@@ -1,0 +1,78 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ApiController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $json = file_get_contents('https://api.coinpaprika.com/v1/tickers');
+        $collection = json_decode($json, true);
+        return view('crypto', compact('collection'));
+    }
+
+    public function users(){
+        $json = file_get_contents('https://jsonplaceholder.typicode.com/users');
+        $collection = json_decode($json, true);
+        return view('users', compact('collection'));
+    }
+
+    public function products(){
+        $json = file_get_contents('https://fakestoreapi.com/products');
+        $collection = json_decode($json, true);
+        return view('products', compact('collection'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+}
